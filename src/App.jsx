@@ -9,7 +9,6 @@ function App() {
     setTasks(()=> tasks++);
 
   }
-
   
   return (
     <>
