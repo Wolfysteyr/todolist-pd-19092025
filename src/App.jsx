@@ -5,16 +5,26 @@ import './App.css'
 
 function App() {
   const [tasks, setTasks] = useState(0)
-  let tasksP = document.getElementById("tasks");
-  tasksP.innerHTML = "";
-  function newTask(){
-    setTasks(()=> tasks++);
+  // const tasksP = document.getElementById("taskList");
+  // tasksP.innerHTML = "";
+  
 
+  function taskList(){
+    let value;
     if (tasks == 0) {
-          tasksP.innerHTML = 'No tasks yet - add one above!'; 
+           this.innerHTML = 'No tasks yet - add one above!'; 
         } else {
-          tasksP.innerHTML += document.getElementById("task").value 
-        }
+          value = '';
+        } 
+    return(
+      <div></div>
+    );
+  }
+  function newTask(){
+    setTasks((tasks)=> tasks + 1);
+    tasksP.innerHTML += `<li> ${document.getElementById("task").value} <button onClick=(deleteTask)>X </></li>`
+
+  
   }
 
 
@@ -26,8 +36,9 @@ function App() {
 
         <input type="text" name="task" id="task" placeholder='What needs to be done?' />
         <button id='button' onClick={newTask}>Add</button>
-        <div id='tasks'></div>
-        
+        {/* <div id='taskList' onLoad={checkTask}></div> */}
+        <br />
+        <taskList></taskList>
       </div>
     </>
   )
