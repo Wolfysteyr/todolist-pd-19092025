@@ -5,11 +5,20 @@ import './App.css'
 
 function App() {
   const [tasks, setTasks] = useState(0)
+  let tasksP = document.getElementById("tasks");
+  tasksP.innerHTML = "";
   function newTask(){
     setTasks(()=> tasks++);
 
+    if (tasks == 0) {
+          tasksP.innerHTML = 'No tasks yet - add one above!'; 
+        } else {
+          tasksP.innerHTML += document.getElementById("task").value 
+        }
   }
-  
+
+
+
   return (
     <>
       <div>
